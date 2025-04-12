@@ -147,7 +147,7 @@ can also check out this [published link](https://claude.site/artifacts/bba1b878-
 ## 📫 Feedback & Contributions
 
 Have an idea or found a bug?  
-We welcome [issues](https://github.com/your-repo/issues) and [pull requests](https://github.com/your-repo/pulls) — your contributions make this project better!
+We welcome [issues](https://github.com/Adity-star/mcp-yfinance-server/issues) and [pull requests](https://github.com/Adity-star/mcp-yfinance-server/pulls) — your contributions make this project better!
 
 ---
 
