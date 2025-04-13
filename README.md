@@ -185,8 +185,9 @@ Try these prompts in Claude Desktop:
 If this saved you from API rate limits or overpriced SaaS tools…
 
 🌟 Star the repo
-🍴 Fork it and build your own crypto/stock tool
-📲 Tag me on X @AdityaAkuskar — I’d love to see what you build!
+- 🍴 Fork it and build your own crypto/stock tool
+- 📲 Tag me on X [@AdityaAkuskar](https://x.com/AdityaAkuskar) — I’d love to see what you build!
+- 🔗 Connect With me on [Linkedin](https://www.linkedin.com/in/aditya-a-27b43533a/)
 
 ---
 
