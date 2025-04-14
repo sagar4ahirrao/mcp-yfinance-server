@@ -76,7 +76,7 @@ uv run stock_price_server.py
 ```
 📄 Want to explore how it works? Check the full code here: 
 
-📂 [stock_price_server.py](https://github.com/Adity-star/mcp-yfinance-server/blob/main/stock_price_server.py)
+📂 [stock_price_server.py](https://github.com/Adity-star/mcp-yfinance-server/blob/main/demo_stock_price_server.py)
 
 ---
 
