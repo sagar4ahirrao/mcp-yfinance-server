@@ -4,6 +4,7 @@ from mcp.server.fastmcp import FastMCP
 import threading
 import time
 import asyncio
+from news import get_company_news, get_news_and_sentiment
 
 # Create the MCP server instance
 mcp = FastMCP("Stock Price Server")
@@ -30,7 +31,6 @@ def safe_get_price(ticker) -> float:
     except Exception as e:
         raise ValueError(f"Error retrieving stock price: {e}")
 
-# --- MCP Tools --- 
 
 # Import the TechnicalIndicators class here
 ti = TechnicalIndicators()
@@ -149,6 +149,21 @@ def get_realtime_watchlist_prices() -> dict:
     Get real-time cached prices from the background updater.
     """
     return dict(sorted(watchlist_prices.items()))
+
+@mcp.tool()
+def get_company_news_headlines(symbol: str) -> dict:
+    """
+    Get latest news headlines for a company using Yahoo Finance.
+    """
+    return get_company_news(symbol)
+
+@mcp.tool()
+def get_stock_news_sentiment(symbol: str) -> dict:
+    """
+    Get recent news headlines and sentiment analysis for a stock.
+    """
+    return get_news_and_sentiment(symbol)
+
 
 # --- Start the background price update thread ---
 price_update_thread = threading.Thread(target=update_prices, daemon=True)
