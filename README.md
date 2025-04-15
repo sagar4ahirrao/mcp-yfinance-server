@@ -104,7 +104,9 @@ Explore the source code here:
 
 # 🛠️ MCP Tool Reference
 
-The server exposes the following tools for AI agents and CLI users:
+The server exposes many tools for AI agents and CLI users.  
+Here are some important tools, check out the complete tools list [here](https://github.com/Adity-star/mcp-yfinance-server/blob/main/results/tools.md):
+
 
 ## 📦 Tool List
 
@@ -120,7 +122,7 @@ The server exposes the following tools for AI agents and CLI users:
 | `compare_stocks`              | Compare two stock prices (useful for relative performance analysis).       |
 
 
-> ✅ Total: 18 powerful tools to analyze and monitor stocks with precision.
+> ✅ [Total: 18 powerful tools to analyze and monitor stocks with precision.](https://github.com/Adity-star/mcp-yfinance-server/blob/main/results/tools.md)
 
 ## 🧠 Use Cases
 
