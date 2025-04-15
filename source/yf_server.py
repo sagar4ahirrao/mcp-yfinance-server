@@ -5,9 +5,8 @@ import threading
 import time
 import asyncio
 from typing import Dict, List, Union, Optional, Tuple
-from news import fetch_newsapi_news, get_news_and_sentiment, display_news_portal
+import matplotlib.pyplot as plt
 
-import os
 
 # Create the MCP server instance
 mcp = FastMCP("Stock Price Server")
@@ -35,7 +34,7 @@ def safe_get_price(ticker) -> float:
         raise ValueError(f"Error retrieving stock price: {e}")
 
 
-# Import the TechnicalIndicators class here
+
 ti = TechnicalIndicators()
 
 @mcp.tool()
@@ -227,7 +226,7 @@ def get_support_resistance(symbol: str, period: str = "1y", interval: str = "1d"
         data = ti.get_stock_data(symbol, period, interval)
         levels = ti.detect_support_resistance(data, window)
         
-        # Get the latest close for context
+        
         latest_close = data['Close'].iloc[-1]
         
         return {
@@ -498,6 +497,7 @@ def compare_stocks(symbol1: str, symbol2: str) -> str:
             return f"{symbol1} and {symbol2} have the same price (${price1:.2f})."
     except Exception as e:
         return f"Error comparing stocks: {e}"
+    
 
 # --- Watchlist Management ---
 @mcp.tool()
@@ -531,6 +531,7 @@ def get_watchlist_prices() -> dict:
             prices[symbol] = f"Error: {e}"
     return prices
 
+
 # --- Simulated Real-Time Updates ---
 def update_prices():
     """
@@ -553,9 +554,6 @@ def get_realtime_watchlist_prices() -> dict:
     return dict(sorted(watchlist_prices.items()))
 
 
-
-
-import matplotlib.pyplot as plt
 
 @mcp.tool()
 def analyze_stock(ticker):
@@ -630,7 +628,6 @@ def analyze_stock(ticker):
 
     plt.tight_layout()
     plt.show()
-
 
 
 # --- Start the background price update thread ---

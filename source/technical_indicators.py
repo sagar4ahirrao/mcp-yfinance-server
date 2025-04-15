@@ -81,9 +81,9 @@ class TechnicalIndicators:
         avg_gain = gain.rolling(window=window).mean()
         avg_loss = loss.rolling(window=window).mean()
         
-        # Calculate first RSI after initial averaging period
+        
         for i in range(window, len(delta)):
-            if i > window:  # Use EMA for subsequent calculations
+            if i > window:  
                 avg_gain[i] = (avg_gain[i-1] * (window-1) + gain[i]) / window
                 avg_loss[i] = (avg_loss[i-1] * (window-1) + loss[i]) / window
         
