@@ -35,7 +35,6 @@ I have several specialized tools available to assist you with stock market analy
 ## Complete tools list
 
 ## 🧰 MCP Tool List
-## 🧰 MCP Tool List
 
 | Tool Name                      | Description                                                                 |
 |-------------------------------|-----------------------------------------------------------------------------|
