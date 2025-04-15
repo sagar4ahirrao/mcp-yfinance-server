@@ -7,7 +7,13 @@
 
 This project sets up a **stock Price server** powered by the **Yahoo Finance (YFinance)** API and built for seamless integration with **MCP (Multi-Agent Control Protocol)**.
 
-It allows AI agents or clients to retrieve **real-time stock data**, manage a **watchlist**, and **analyze historical trends** with ease.
+It allows AI agents or clients to:
+- Retrieve real-time stock data
+- Manage a watchlist
+- Perform full stock analysis
+- Run full technical indicators
+- And much more
+
 
 ![image](https://github.com/user-attachments/assets/b7f27442-823e-45a1-8f57-e0f6282ee36f)
 
@@ -35,9 +41,11 @@ Once you're familiar with the flow, move on to this more advanced stock tracker 
 
 > Includes:
 > - Watchlists
-> - Historical comparisons
-> - Real-time(ish) updates
+> - Real-time(ish) price updates
+> - Technical summaries
 > - A full-featured dashboard
+> - Trend + momentum indicators
+> - Watchlist management
 
 ---
 
@@ -64,45 +72,64 @@ uv init
 uv venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install required dependencies
-uv add "mcp[cli]" yfinance
 ```
+## 📥 Install the project
+Once your [pyproject.toml](https://github.com/Adity-star/mcp-yfinance-server/blob/main/pyproject.toml) is set up with dependencies, run: 
+```bash
+#  Run 
+uv install .
+```
+
 ---
 ## 🚀 Step 2: Running the MCP Server
-After setting up the environment:
+Once your environment is ready, start the stock server:
 ```bash
-cp ../stock_price_serve.py .
-uv run stock_price_server.py
+cp ../yf_serve.py .
+uv run source/yf_server.py
 ```
-📄 Want to explore how it works? Check the full code here: 
+🧪 Want a quick test first?
+Try running the lightweight demo server:
+```bash
+uv run demo_stock_price_server.py
+```
 
-📂 [stock_price_server.py](https://github.com/Adity-star/mcp-yfinance-server/blob/main/demo_stock_price_server.py)
+📄 Curious how the full server works?
+
+Explore the source code here: 
+
+🔗 [yf_server.py › GitHub](https://github.com/Adity-star/mcp-yfinance-server/blob/main/source/yf_server.py)
+
 
 ---
 
 # 🛠️ MCP Tool Reference
 
-The server exposes these tools for AI agents and CLI users:
+The server exposes the following tools for AI agents and CLI users:
 
 ## 📦 Tool List
 
 | Tool Name                      | Description                                                                 |
 |-------------------------------|-----------------------------------------------------------------------------|
 | `add_to_watchlist`            | Add a stock ticker to your personal watchlist.                             |
-| `remove_from_watchlist`       | Remove a stock from your watchlist.                                        |
-| `get_watchlist`               | Retrieve the full list of watchlisted tickers.                             |
+| `analyze_stock`       |Perform a 1-month technical trend analysis (RSI, MACD, MAs)..                                        |
+| `get_technical_summary`               |Generate a comprehensive technical summary including indicators & signals..                             |
 | `get_watchlist_prices`        | Fetch the most recent prices for all watchlisted tickers.                  |
-| `get_realtime_watchlist_prices` | Get cached real-time prices (faster access).                              |
+| `get_trend_analysiss` | Analyze recent trend shifts, patterns, and divergences..                              |
 | `get_stock_price`             | Retrieve the current price for a given ticker symbol.                      |
-| `get_stock_history`           | Download historical price data in CSV format for a ticker.                 |
+| `get_volatility_analysis`           |  Calculate historical volatility and ATR metrics..                 |
 | `compare_stocks`              | Compare two stock prices (useful for relative performance analysis).       |
+
+
+> ✅ Total: 18 powerful tools to analyze and monitor stocks with precision.
 
 ## 🧠 Use Cases
 
 These tools are ideal for:
-- Portfolio tracking
-- Financial research
-- Real-time market reactions
+- 📊 Dynamic watchlist management
+- 🔁 Trend and momentum detection
+- 📈 Deep-dive technical analysis for investment decisions
+- ⚠️ Volatility-based risk assessment
+- 🤖 Powering stock-focused autonomous agents or dashboards
 
 
 > ⚙️ Keep this reference handy for building intelligent financial applications with the MCP server.
@@ -111,19 +138,24 @@ These tools are ideal for:
 
 ## 🔍 Step 3: Inspecting the MCP Server
 
-You can test and inspect your MCP server using the **MCP Server Inspector**.  
+Easily explore and test your MCP tools using the **MCP Server Inspector**.
 Run the following command in your terminal:
 
 ```bash
-$ mcp dev stock_price_server.py
+$ mcp dev source/yf_server.py
 ```
+This launches an interactive UI to:
+- 🧰 View all available tools and resources
+- 📥 Test input/output for each tool
+- 📡 Monitor real-time responses from your server
+- 
 ![image](https://github.com/user-attachments/assets/886182a3-e996-4713-aec6-d9ab3fac3bd9)
 
 ---
 
 ## ⚙️ Step 4: Configure Your MCP Server
 
-Update your MCP config with the following entry:
+To integrate your YFinance MCP server, add the following entry to your mcp.config.json file:
 
 ```json
 {
@@ -134,62 +166,94 @@ Update your MCP config with the following entry:
         "--directory",
         "/ABSOLUTE/PATH/TO/YOUR/mcp-yfinance-server",
         "run",
-        "stock_price_server.py"
+        "yf_server.py"
       ]
     }
   }
 }
 ```
-⚠️ Replace /ABSOLUTE/PATH/TO/... with actual file paths.
-💡 Tip: Rename your server from crypto-price-tracker to yfinance-price-tracker for clarity.
+> ⚠️ Replace /ABSOLUTE/PATH/TO/... with actual file paths.
+> 💡 Tip: Rename your server from crypto-price-tracker to yfinance-price-tracker for clarity.
 
 ---
 ## 🔁 Step 5: Restart Claude Desktop
 
 Restart **Claude Desktop** (or any interface that uses MCP) to reload and activate your new YFinance tools.
+> This ensures the updated MCP configuration is recognized and all stock tracking tools are 
+ ready to use.
 
 ---
 ## ✅ Step 6: Testing the MCP Server with Claude Desktop
 
 - With everything installed and configured, you're ready to test your MCP server in **Claude Desktop**.
 
-Try these prompts in Claude Desktop:
+Use these example queries to test your MCP YFinance Server in action:
 
 > "Compare the stock prices of Tesla and Apple."
-> → Uses compare_stocks
+> → 🔧 Uses `compare_stocks`
 
 > "Get the historical data for Tesla over the past month."
-> → Uses get_stock_history
+> → 📊 Uses `get_stock_history`
 
 > "Add Apple, Tesla, and Reliance to my watchlist."
-> → Uses add_to_watchlist
+> → 📋 Uses `add_to_watchlist`
 
 > "Show me a chart of Apple’s stock over the last 30 days."
-> → Claude can fetch + visualize using your server.
+> → 🖼️ Claude can fetch + visualize data using your server
 
-🖼 [View Sample Chart](https://github.com/Adity-star/mcp-yfinance-server/blob/main/assets/Screenshot%20(16).png)
+📷 Sample Chart:
+🖼 [view Screenshot](https://github.com/Adity-star/mcp-yfinance-server/blob/main/assets/Screenshot%20(16).png)
 
-🌐 [Published Link (Claude.site)](https://claude.site/artifacts/bba1b878-de53-4988-a0b5-377f2d202b3a)
+🌐 Live Claude Site:
+[Open Demo on Claude.site](https://claude.site/artifacts/bba1b878-de53-4988-a0b5-377f2d202b3a)
 
 🧪 These tests ensure your MCP integration is working end-to-end—from data retrieval to real-time analysis and visualization.
 
 ---
 
-## 📫 Feedback & Contributions
+# 📊 Results
 
-- Have an idea or found a bug?  
-- We welcome [issues](https://github.com/Adity-star/mcp-yfinance-server/issues) and [pull requests](https://github.com/Adity-star/mcp-yfinance-server/pulls)
-- your contributions make this project better!
+## ⚙️ Outcomes You Can Expect
+
+| Feature                                                                 | Outcome                                                                 |
+|-------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| ✅ [**Stock Analysis**](https://claude.site/artifacts/a118060f-25ac-410b-ae37-0869dc773a98)              | Analyse stock giving price, OHLC, returns, volume, insights and data.  |
+| 📈 [**Technical Analysis**](https://claude.site/artifacts/4642c157-8022-43b7-a2cd-472437c62e4b)          | Access indicators like RSI, MACD, MA, and a complete technical summary.|
+| 📉 [**Volatility Reports**](https://claude.site/artifacts/08214360-f08f-48d7-9cb1-1bc7334910e9)          | Analyze stock risk with ATR and volatility metrics.                    |
+| 🔍 [**Trend Analysis**](https://claude.site/artifacts/878fc17e-a845-4944-b2ee-14857da2bbfc)              | Detect trend shifts and divergence using price movement analysis.      |
+| 🧠 [**Visualisations**](https://claude.site/artifacts/4642c157-8022-43b7-a2cd-472437c62e4b)              | 18+ tools ready to power AI agents or dashboards to visualise stock.                      |
+| 📋 [**Technical Charts**](https://claude.site/artifacts/559bf977-91dc-45e1-a6b7-e95a19eaaeab)            | Analyse and monitor technical indicators for stocks in real-time.      |
+| 🖼️ [**Visual Insights**](https://claude.site/artifacts/bba1b878-de53-4988-a0b5-377f2d202b3a)            | Generate charts and visual summaries with Claude Desktop.              |
+
+
+> 🎉 Ready to build your stock-tracking bot or intelligent financial dashboard? This project has all the core pieces.
+
+---
+
+## 📫 Feedback & Contributions
+Contributions are welcome! Whether you're fixing bugs, adding features, or improving documentation, your help makes this project better.
+
+### 🐛 Reporting Issues
+
+If you encounter bugs or have suggestions, please open an issue in the [Issues section](https://github.com/Adity-star/mcp-yfinance-server/issues). Be sure to include:
+
+- ✅ Steps to reproduce (if applicable)  
+- 🔍 Expected vs. actual behavior  
+- 📷 Screenshots or error logs (if relevant)  
+
+### 📬 Submit a Pull Request
+
+Have a fix or improvement? Head over to the [Pull Requests section](https://github.com/Adity-star/mcp-yfinance-server/pulls) and submit your PR. We’ll review and merge it ASAP!
 
 ---
 ## 💬 Spread the Word
-If this saved you from API rate limits or overpriced SaaS tools…
+If this project saved you from API rate limits or overpriced SaaS tools...
 
-🌟 Star the repo
-- 🍴 Fork it and build your own crypto/stock tool
-- 📲 Tag me on X [@AdityaAkuskar](https://x.com/AdityaAkuskar) — I’d love to see what you build!
-- 🔗 Connect With me on [Linkedin](https://www.linkedin.com/in/aditya-a-27b43533a/)
 
+- 🌟 **Star** the repo  
+- 🍴 **Fork** it and build your own crypto/stock tool  
+- 📲 **Tag me on X** [@AdityaAkuskar](https://x.com/AdityaAkuskar) — I’d love to see what you build!  
+- 🔗 **Connect with me on [LinkedIn](https://www.linkedin.com/in/aditya-a-27b43533a/)**  
 ---
 
 ## 📜 License
