@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/adity-star-mcp-yfinance-server-badge.png)](https://mseep.ai/app/adity-star-mcp-yfinance-server)
+
 # 💹 MCP YFinance Stock Server
 ![Python](https://img.shields.io/badge/python-3.10-blue)
 ![MCP](https://img.shields.io/badge/MCP-Compatible-green)
