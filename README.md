@@ -2,7 +2,7 @@
 ![Python](https://img.shields.io/badge/python-3.10-blue)
 ![MCP](https://img.shields.io/badge/MCP-Compatible-green)
 ![License](https://img.shields.io/github/license/Adity-star/mcp-yfinance-server)
-
+[![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/0a7dba3b-8916-4bc5-8f02-0a0f1634eaf4)
 
 
 This project sets up a **stock Price server** powered by the **Yahoo Finance (YFinance)** API and built for seamless integration with **MCP (Multi-Agent Control Protocol)**.
