@@ -17,9 +17,6 @@ dependencies = [
     "ipython>=9.1.0",
 ]
 
-[[project.authors]]
-name = "Aditya Ak"
-email = "aakuskar.980@gmail.com"
 
 [build-system]
 requires = ["setuptools>=73.0.0", "wheel"]
