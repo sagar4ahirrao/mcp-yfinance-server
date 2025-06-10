@@ -636,4 +636,4 @@ price_update_thread.start()
 
 # Run the server
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="sse")

@@ -136,4 +136,4 @@ def get_realtime_watchlist_prices() -> dict:
 # Start the server
 if __name__ == "__main__":
     threading.Thread(target=update_prices, daemon=True).start()
-    mcp.run()
+    mcp.run(transport="sse")
