@@ -125,22 +125,13 @@ Explore the source code here:
       "url": "http://localhost:8000/sse",
       "tools": [
         "get_stock_price",
-        "get_moving_averages",
-        "get_rsi",
-        "get_macd",
-        "get_bollinger_bands",
-        "get_volatility_analysis",
-        "get_support_resistance",
-        "get_trend_analysis",
-        "get_technical_summary",
         "get_stock_history",
         "compare_stocks",
         "add_to_watchlist",
         "remove_from_watchlist",
         "get_watchlist",
         "get_watchlist_prices",
-        "get_realtime_watchlist_prices",
-        "analyze_stock"
+        "get_realtime_watchlist_prices"
       ]
     }
   }
